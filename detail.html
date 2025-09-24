@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimson Silk Lehenga - RangRasiya Rentals</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        .nav-link-active {
+            position: relative;
+        }
+        .nav-link-active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #0d9488; /* teal-600 */
+        }
+        /* Thumbnail styles */
+        .thumbnail {
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+        .thumbnail.active, .thumbnail:hover {
+            border-color: #0d9488; /* teal-600 */
+        }
+        
+        /* Fade in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .main-image {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        /* Slide in up animation for details */
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-details > * {
+            opacity: 0;
+            animation: slideInUp 0.6s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-40 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold font-playfair text-gray-800">RangRasiya Rentals</a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-gray-600 hover:text-teal-600 transition-colors">Home</a>
+                <a href="collection.html" class="text-teal-600 font-semibold nav-link-active">The Collection</a>
+                <a href="aboutus.html" class="text-gray-600 hover:text-teal-600 transition-colors">About Us</a>
+                <a href="#" class="text-gray-600 hover:text-teal-600 transition-colors">Contact</a>
+            </nav>
+             <div class="flex items-center space-x-4">
+                <a href="login.html" class="hidden sm:block bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-gray-200 transition-colors">Login</a>
+                <a href="signup.html" class="bg-teal-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-teal-700 transition-colors">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            
+            <!-- Image Gallery -->
+            <div>
+                <div class="bg-gray-100 rounded-lg overflow-hidden mb-4">
+                    <img id="main-image" src="C:\Users\Om\OneDrive\Desktop\BTECH - CE\SEM 3\WT\RangRasiya Rentals\images\crimson.png" alt="Main view of Crimson Silk Lehenga" class="w-full h-auto object-cover main-image">
+                </div>
+                <div class="grid grid-cols-4 gap-4" id="thumbnail-gallery">
+                    <img src="C:\Users\Om\OneDrive\Desktop\BTECH - CE\SEM 3\WT\RangRasiya Rentals\images\crimson.png" alt="Thumbnail 1" class="thumbnail active rounded-md" data-full="https://images.unsplash.com/photo-1631215101211-3e5cb39c4d29?q=80&w=1887&auto=format=fit=crop">
+                    <img src="https://images.unsplash.com/photo-1617639495279-d64e3235339f?q=80&w=1887&auto=format&fit=crop" alt="Thumbnail 2" class="thumbnail rounded-md" data-full="https://images.unsplash.com/photo-1617639495279-d64e3235339f?q=80&w=1887&auto=format=fit=crop">
+                    <img src="https://images.unsplash.com/photo-1604514256611-1a7f654b732d?q=80&w=1887&auto=format=fit=crop" alt="Thumbnail 3" class="thumbnail rounded-md" data-full="https://images.unsplash.com/photo-1604514256611-1a7f654b732d?q=80&w=1887&auto=format=fit=crop">
+                    <img src="https://images.unsplash.com/photo-1595493941423-f314e7c3e218?q=80&w=1887&auto=format=fit=crop" alt="Thumbnail 4" class="thumbnail rounded-md" data-full="https://images.unsplash.com/photo-1595493941423-f314e7c3e218?q=80&w=1887&auto=format=fit=crop">
+                </div>
+            </div>
+
+            <!-- Product Details -->
+            <div class="flex flex-col justify-center animate-details">
+                <h1 class="font-playfair text-4xl md:text-5xl font-bold text-gray-900" style="animation-delay: 0.1s;">Crimson Silk Lehenga</h1>
+                <p class="text-3xl text-gray-700 mt-4" style="animation-delay: 0.2s;">₹250 <span class="text-lg font-normal">Rental Price</span></p>
+                <p class="mt-6 text-gray-600 leading-relaxed" style="animation-delay: 0.3s;">
+                    A detailed paragraph description of the outfit, its style, the fabric, and the intricate work goes here. This text will describe the overall look and feel. This breathtaking piece features traditional craftsmanship on luxurious silk, perfect for weddings and grand celebrations.
+                </p>
+                <div class="mt-8 space-y-3 border-t pt-6" style="animation-delay: 0.4s;">
+                    <p class="text-gray-800"><strong class="font-semibold">Size:</strong> Available in S, M, L (Custom fitting available)</p>
+                    <p class="text-gray-800"><strong class="font-semibold">Fabric:</strong> Pure Raw Silk</p>
+                    <p class="text-gray-800"><strong class="font-semibold">Work:</strong> Zardozi embroidery with pearl and stone details</p>
+                </div>
+                <div class="mt-10" style="animation-delay: 0.5s;">
+                    <button class="w-full sm:w-auto bg-teal-600 text-white font-bold py-4 px-12 rounded-lg text-lg hover:bg-teal-700 transition-colors shadow-lg transform hover:scale-105">
+                        Book Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 border-t mt-12">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-600">&copy; 2025 RangRasiya Rentals. All rights reserved.</p>
+                <div class="flex mt-4 md:mt-0 space-x-6">
+                    <a href="#" class="text-gray-500 hover:text-gray-800">Facebook</a>
+                    <a href="#" class="text-gray-500 hover:text-gray-800">Instagram</a>
+                    <a href="#" class="text-gray-500 hover:text-gray-800">Pinterest</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainImage = document.getElementById('main-image');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', () => {
+                    // Change main image
+                    mainImage.src = thumb.dataset.full;
+
+                    // Update active state
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    thumb.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
