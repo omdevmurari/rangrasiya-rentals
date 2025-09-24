@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe - The Collection Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .wireframe-container {
+            max-width: 1200px;
+            margin: auto;
+            background-color: #ffffff;
+            border: 1px solid #d9d9d9;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .header, .footer {
+            padding: 20px;
+            border-bottom: 1px solid #d9d9d9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer {
+            border-top: 1px solid #d9d9d9;
+            border-bottom: none;
+            justify-content: center;
+        }
+        .logo-box {
+            border: 2px dashed #b0b0b0;
+            padding: 10px 20px;
+            color: #555;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-link-box {
+            border-bottom: 2px solid #b0b0b0;
+            padding: 5px 10px;
+            color: #555;
+        }
+        .main-content {
+            padding: 40px;
+            display: flex;
+            gap: 40px;
+        }
+        .placeholder-box {
+            border: 2px dashed #b0b0b0;
+            background-color: #f8f8f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #555;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: #333;
+            font-weight: bold;
+        }
+        .filter-sidebar {
+            width: 25%;
+            padding: 20px;
+            border: 2px dashed #b0b0b0;
+            background-color: #f8f8f8;
+            align-self: flex-start;
+        }
+        .filter-group {
+            width: 100%;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .filter-group p {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
+        .checkbox-placeholder {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #888;
+        }
+        .product-grid {
+            width: 75%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .product-card-placeholder {
+            border: 2px dashed #b0b0b0;
+            background-color: #f8f8f8;
+        }
+        .product-card-placeholder .img-placeholder {
+            height: 200px;
+            width: 100%;
+            border-bottom: 2px dashed #b0b0b0;
+        }
+        .product-card-placeholder .text-placeholder {
+            padding: 15px;
+            text-align: left;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="wireframe-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-box">RangRasiya Rentals</div>
+            <div class="nav-links">
+                <div class="nav-link-box">Home</div>
+                <div class="nav-link-box" style="border-color: #333; font-weight: bold;">The Collection</div>
+                <div class="nav-link-box">About Us</div>
+                <div class="nav-link-box">Contact</div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Filter Sidebar -->
+            <div class="filter-sidebar">
+                <h3 style="text-align: left; margin-top: 0;">Filters</h3>
+                <hr style="border: none; border-top: 1px solid #ccc; margin: 15px 0;">
+                <div class="filter-group">
+                    <p>By Style</p>
+                    <div class="checkbox-item"><div class="checkbox-placeholder"></div><span>Traditional</span></div>
+                    <div class="checkbox-item"><div class="checkbox-placeholder"></div><span>Modern</span></div>
+                    <div class="checkbox-item"><div class="checkbox-placeholder"></div><span>Designer</span></div>
+                </div>
+                <div class="filter-group">
+                    <p>By Color</p>
+                    <div class="checkbox-item"><div class="checkbox-placeholder"></div><span>Red</span></div>
+                    <div class="checkbox-item"><div class="checkbox-placeholder"></div><span>Blue</span></div>
+                    <div class="checkbox-item"><div class="checkbox-placeholder"></div><span>Yellow</span></div>
+                </div>
+                 <div class="filter-group">
+                    <p>By Price</p>
+                    <div class="checkbox-item"><span>[Price Range Slider]</span></div>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-grid">
+                <!-- Repeat this card for the grid -->
+                <div class="product-card-placeholder">
+                    <div class="img-placeholder"></div>
+                    <div class="text-placeholder">
+                        <p style="font-weight: bold; margin: 0;">Outfit Name</p>
+                        <p style="margin: 5px 0;">Rental Price</p>
+                    </div>
+                </div>
+                <div class="product-card-placeholder">
+                    <div class="img-placeholder"></div>
+                    <div class="text-placeholder">
+                        <p style="font-weight: bold; margin: 0;">Outfit Name</p>
+                        <p style="margin: 5px 0;">Rental Price</p>
+                    </div>
+                </div>
+                <div class="product-card-placeholder">
+                    <div class="img-placeholder"></div>
+                    <div class="text-placeholder">
+                        <p style="font-weight: bold; margin: 0;">Outfit Name</p>
+                        <p style="margin: 5px 0;">Rental Price</p>
+                    </div>
+                </div>
+                <div class="product-card-placeholder">
+                    <div class="img-placeholder"></div>
+                    <div class="text-placeholder">
+                        <p style="font-weight: bold; margin: 0;">Outfit Name</p>
+                        <p style="margin: 5px 0;">Rental Price</p>
+                    </div>
+                </div>
+                <div class="product-card-placeholder">
+                    <div class="img-placeholder"></div>
+                    <div class="text-placeholder">
+                        <p style="font-weight: bold; margin: 0;">Outfit Name</p>
+                        <p style="margin: 5px 0;">Rental Price</p>
+                    </div>
+                </div>
+                <div class="product-card-placeholder">
+                    <div class="img-placeholder"></div>
+                    <div class="text-placeholder">
+                        <p style="font-weight: bold; margin: 0;">Outfit Name</p>
+                        <p style="margin: 5px 0;">Rental Price</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Footer Content Area</p>
+        </div>
+    </div>
+
+</body>
+</html

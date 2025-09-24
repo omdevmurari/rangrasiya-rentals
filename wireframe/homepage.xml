@@ -1,0 +1,71 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Homepage Wireframe" id="5uRKud5Et9zNMEhC9bKc">
+    <mxGraphModel dx="1482" dy="716" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- NAVBAR -->
+        <mxCell id="2" value="Navbar: Logo | Home | Collection | About Us | Contact" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#e3e3e3;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="800" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- HERO SECTION -->
+        <mxCell id="3" value="Hero Section: Rent Beautiful Navratri Outfits [Rent Now Button]" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#f4f4f4;" vertex="1" parent="1">
+          <mxGeometry x="0" y="50" width="800" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- HOW IT WORKS -->
+        <mxCell id="4" value="How It Works" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="0" y="160" width="800" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="5" value="Choose" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#dddddd;" vertex="1" parent="1">
+          <mxGeometry x="50" y="200" width="200" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="6" value="Book" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#dddddd;" vertex="1" parent="1">
+          <mxGeometry x="300" y="200" width="200" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="7" value="Dance" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#dddddd;" vertex="1" parent="1">
+          <mxGeometry x="550" y="200" width="200" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- POPULAR OUTFITS -->
+        <mxCell id="8" value="Popular Outfits" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="0" y="300" width="800" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="9" value="Outfit 1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#cccccc;" vertex="1" parent="1">
+          <mxGeometry x="50" y="340" width="150" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="10" value="Outfit 2" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#cccccc;" vertex="1" parent="1">
+          <mxGeometry x="225" y="340" width="150" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="11" value="Outfit 3" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#cccccc;" vertex="1" parent="1">
+          <mxGeometry x="400" y="340" width="150" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="12" value="Outfit 4" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#cccccc;" vertex="1" parent="1">
+          <mxGeometry x="575" y="340" width="150" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- TESTIMONIALS -->
+        <mxCell id="13" value="Testimonials" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="0" y="480" width="800" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="14" value="Testimonial 1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#dddddd;" vertex="1" parent="1">
+          <mxGeometry x="100" y="520" width="180" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="15" value="Testimonial 2" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#dddddd;" vertex="1" parent="1">
+          <mxGeometry x="310" y="520" width="180" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="16" value="Testimonial 3" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#dddddd;" vertex="1" parent="1">
+          <mxGeometry x="520" y="520" width="180" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- FOOTER -->
+        <mxCell id="17" value="Footer: Quick Links | Social Media | Contact Info" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#e3e3e3;" vertex="1" parent="1">
+          <mxGeometry x="0" y="620" width="800" height="60" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

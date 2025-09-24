@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe - Interactive Lookbook</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .wireframe-container {
+            width: 1200px;
+            height: 675px; /* 16:9 aspect ratio */
+            background-color: #ffffff;
+            border: 1px solid #d9d9d9;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .horizontal-panels {
+            display: flex;
+            width: 400%; /* 4 panels */
+            height: 100%;
+        }
+        .panel-wireframe {
+            width: 25%; /* Each panel takes 1/4 of the width */
+            height: 100%;
+            border-right: 2px dashed #ccc;
+            padding: 40px;
+            box-sizing: border-box;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .panel-wireframe:last-child {
+            border-right: none;
+        }
+        .placeholder-box {
+            border: 2px dashed #b0b0b0;
+            background-color: #f8f8f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #555;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+        .nav-dots-wireframe {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .nav-dot-wireframe {
+            width: 12px;
+            height: 12px;
+            border: 2px solid #555;
+            border-radius: 50%;
+        }
+        .nav-dot-wireframe.active {
+            background-color: #555;
+        }
+
+        /* Panel 1 Specifics */
+        .hero-text-box {
+            width: 40%;
+            height: 50%;
+            position: absolute;
+            left: 40px;
+            text-align: left;
+            padding: 20px;
+        }
+        .hero-image-box {
+            width: 55%;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+        .scroll-prompt-box {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            padding: 5px 10px;
+            border-bottom: 2px solid #b0b0b0;
+        }
+
+        /* Panel 2 & 3 Specifics */
+        .vertical-title-box {
+            position: absolute;
+            left: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            padding: 20px 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .grid-box {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 65%;
+            height: 65%;
+            margin-left: 100px; /* Offset for vertical title */
+        }
+        .card-placeholder {
+            border: 2px dashed #b0b0b0;
+            background-color: #f8f8f8;
+        }
+        
+        /* Panel 4 Specifics */
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        .social-icons-placeholder {
+            display: flex;
+            gap: 15px;
+        }
+        .icon-circle-placeholder {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #b0b0b0;
+            border-radius: 50%;
+        }
+        .button-placeholder {
+            border: 2px solid #888;
+            padding: 10px 20px;
+            border-radius: 50px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="wireframe-container">
+        <div class="nav-dots-wireframe">
+            <div class="nav-dot-wireframe active"></div>
+            <div class="nav-dot-wireframe"></div>
+            <div class="nav-dot-wireframe"></div>
+            <div class="nav-dot-wireframe"></div>
+        </div>
+        <div class="horizontal-panels">
+            <!-- Panel 1: Hero -->
+            <div class="panel-wireframe">
+                <div class="placeholder-box hero-text-box">
+                    <p style="font-size: 2rem; font-weight: bold;">Brand Name</p>
+                    <p style="font-size: 1.5rem;">Main Title Here</p>
+                    <p>Short description text goes here.</p>
+                </div>
+                <div class="placeholder-box hero-image-box">
+                    [Large Clipped Image]
+                </div>
+                <div class="scroll-prompt-box">Scroll Prompt &rarr;</div>
+            </div>
+
+            <!-- Panel 2: Star Collection -->
+            <div class="panel-wireframe">
+                <div class="placeholder-box vertical-title-box">Section Title</div>
+                <div class="grid-box">
+                    <div class="card-placeholder"></div>
+                    <div class="card-placeholder"></div>
+                    <div class="card-placeholder"></div>
+                </div>
+            </div>
+
+            <!-- Panel 3: Browse Styles -->
+            <div class="panel-wireframe">
+                <div class="placeholder-box vertical-title-box">Section Title</div>
+                <div class="grid-box">
+                    <div class="card-placeholder"></div>
+                    <div class="card-placeholder"></div>
+                    <div class="card-placeholder"></div>
+                </div>
+            </div>
+
+            <!-- Panel 4: Footer/Contact -->
+            <div class="panel-wireframe">
+                <div class="footer-content">
+                    <p style="font-size: 2rem; font-weight: bold;">Final Message Title</p>
+                    <p>Short subtitle text goes here.</p>
+                    <div class="button-placeholder">Call to Action Button</div>
+                    <div class="social-icons-placeholder">
+                        <div class="icon-circle-placeholder"></div>
+                        <div class="icon-circle-placeholder"></div>
+                        <div class="icon-circle-placeholder"></div>
+                    </div>
+                    <p>Copyright text</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
