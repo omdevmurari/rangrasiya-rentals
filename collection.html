@@ -15,7 +15,6 @@
         .font-playfair {
             font-family: 'Playfair Display', serif;
         }
-        /* Custom styles for nav underline */
         .nav-link-active {
             position: relative;
         }
@@ -26,72 +25,67 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background-color: #0d9488; /* teal-600 */
-        }
-        /* Custom Price Slider Styles */
-        input[type=range] {
-            width: 100%;
-            background: transparent;
-        }
-        input[type=range]:focus {
-            outline: none;
-        }
-        input[type=range]::-webkit-slider-runnable-track {
-            width: 100%;
-            height: 6px;
-            cursor: pointer;
-            background: #d1fae5; /* teal-100 */
-            border-radius: 5px;
+            background-color: #C70039; /* Updated Brand Color */
         }
         input[type=range]::-webkit-slider-thumb {
             -webkit-appearance: none;
             height: 20px;
             width: 20px;
             border-radius: 50%;
-            background: #0d9488; /* teal-600 */
+            background: #C70039; /* Updated Brand Color */
             cursor: pointer;
-            margin-top: -7px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+            margin-top: -7px; 
         }
-        input[type=range]::-moz-range-track {
-            width: 100%;
-            height: 6px;
-            cursor: pointer;
-            background: #d1fae5;
-            border-radius: 5px;
-        }
-        input[type=range]::-moz-range-thumb {
+         input[type=range]::-moz-range-thumb {
             height: 20px;
             width: 20px;
             border-radius: 50%;
-            background: #0d9488;
+            background: #C70039; /* Updated Brand Color */
             cursor: pointer;
         }
-        
-        /* Fade in animation for product cards */
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 6px;
+            cursor: pointer;
+            background: #FFD1D1; /* Lighter brand color */
+            border-radius: 5px;
+        }
+        input.text-teal-600, .hover\:text-teal-600:hover {
+            color: #C70039 !important;
+        }
+        .focus\:ring-teal-500:focus {
+            --tw-ring-color: #C70039 !important;
+        }
+        .bg-teal-600 {
+            background-color: #C70039 !important;
+        }
+        .hover\:bg-teal-700:hover {
+             background-color: #900C3F !important;
+        }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .product-card {
+        .product-card-container {
             animation: fadeIn 0.5s ease-out forwards;
         }
     </style>
 </head>
-<body class="bg-white">
+<body class="bg-gray-50">
 
     <!-- Header -->
     <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-40 shadow-sm">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="text-xl font-bold font-playfair text-gray-800">RangRasiya Rentals</a>
             <nav class="hidden md:flex items-center space-x-8">
-                <a href="index.html" class="text-gray-600 hover:text-teal-600 transition-colors">Home</a>
-                <a href="collection.html" class="text-teal-600 font-semibold nav-link-active">The Collection</a>
-                <a href="aboutus.html" class="text-gray-600 hover:text-teal-600 transition-colors">About Us</a>
-                <a href="contactus.html" class="text-gray-600 hover:text-teal-600 transition-colors">Contact</a>
+                <a href="index.html" class="text-gray-600 hover:text-red-700 transition-colors">Home</a>
+                <a href="collection.html" class="text-red-700 font-semibold nav-link-active">The Collection</a>
+                <a href="aboutus.html" class="text-gray-600 hover:text-red-700 transition-colors">About Us</a>
+                <a href="contactus.html" class="text-gray-600 hover:text-red-700 transition-colors">Contact</a>
             </nav>
             <div class="flex items-center space-x-4">
                 <a href="login.html" class="hidden sm:block bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-gray-200 transition-colors">Login</a>
-                <a href="index.html" class="bg-teal-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-teal-700 transition-colors">Sign Up</a>
+                <a href="signup.html" class="bg-teal-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-teal-700 transition-colors">Sign Up</a>
             </div>
         </div>
     </header>
@@ -120,16 +114,16 @@
                             <label class="flex items-center"><input type="checkbox" value="red" class="h-4 w-4 rounded border-gray-300 text-teal-600 focus:ring-teal-500"> <span class="ml-2 text-gray-700">Red</span></label>
                             <label class="flex items-center"><input type="checkbox" value="blue" class="h-4 w-4 rounded border-gray-300 text-teal-600 focus:ring-teal-500"> <span class="ml-2 text-gray-700">Blue</span></label>
                             <label class="flex items-center"><input type="checkbox" value="yellow" class="h-4 w-4 rounded border-gray-300 text-teal-600 focus:ring-teal-500"> <span class="ml-2 text-gray-700">Yellow</span></label>
-                            <label class="flex items-center"><input type="checkbox" value="green" class="h-4 w-4 rounded border-gray-300 text-teal-600 focus:ring-teal-500"> <span class="ml-2 text-gray-700">Green</span></label>
+                             <label class="flex items-center"><input type="checkbox" value="green" class="h-4 w-4 rounded border-gray-300 text-teal-600 focus:ring-teal-500"> <span class="ml-2 text-gray-700">Green</span></label>
                         </div>
                     </div>
                     <!-- By Price -->
                     <div>
                         <h3 class="font-semibold mb-3">By Price</h3>
-                        <input type="range" id="price-slider" min="50" max="500" value="500" class="w-full">
+                        <input type="range" id="price-slider" min="1000" max="10000" value="10000" class="w-full">
                         <div class="flex justify-between text-sm text-gray-600 mt-2">
-                            <span>₹50</span>
-                            <span id="price-value">₹500</span>
+                            <span>₹1000</span>
+                            <span id="price-value">₹10000</span>
                         </div>
                     </div>
                 </div>
@@ -143,7 +137,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-50 border-t mt-12">
+    <footer class="bg-white border-t mt-12">
         <div class="container mx-auto px-6 py-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <p class="text-gray-600">&copy; 2025 RangRasiya Rentals. All rights reserved.</p>
@@ -156,6 +150,7 @@
         </div>
     </footer>
 
+    <script src="data.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const products = [
@@ -233,7 +228,71 @@
             renderProducts(products);
         });
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const productGrid = document.getElementById('product-grid');
+            const priceSlider = document.getElementById('price-slider');
+            const priceValue = document.getElementById('price-value');
+            const filterGroups = document.querySelectorAll('.filter-group');
+
+            function renderProducts(filteredProducts) {
+                productGrid.innerHTML = '';
+                if (filteredProducts.length === 0) {
+                    productGrid.innerHTML = `<p class="col-span-full text-center text-gray-500">No products match your criteria.</p>`;
+                    return;
+                }
+                filteredProducts.forEach(product => {
+                    const cardHTML = `
+                        <div class="product-card-container">
+                            <a href="details.html?id=${product.id}" class="group">
+                                <div class="bg-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300">
+                                    <img src="${product.img}" alt="${product.name}" class="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-300">
+                                </div>
+                                <div class="mt-4 text-center">
+                                    <h3 class="text-lg font-semibold text-gray-800">${product.name}</h3>
+                                    <p class="text-md text-gray-600 mt-1">₹${product.price.toLocaleString()} Rental Price</p>
+                                </div>
+                            </a>
+                        </div>
+                    `;
+                    productGrid.insertAdjacentHTML('beforeend', cardHTML);
+                });
+            }
+
+            function applyFilters() {
+                const activeFilters = { style: [], color: [] };
+                
+                filterGroups.forEach(group => {
+                    const type = group.dataset.filterType;
+                    group.querySelectorAll('input:checked').forEach(input => {
+                        activeFilters[type].push(input.value);
+                    });
+                });
+                
+                const maxPrice = parseInt(priceSlider.value);
+
+                const filtered = products.filter(product => {
+                    const styleMatch = activeFilters.style.length === 0 || activeFilters.style.includes(product.style);
+                    const colorMatch = activeFilters.color.length === 0 || activeFilters.color.includes(product.color);
+                    const priceMatch = product.price <= maxPrice;
+                    return styleMatch && colorMatch && priceMatch;
+                });
+                
+                renderProducts(filtered);
+            }
+            
+            priceSlider.addEventListener('input', (e) => {
+                priceValue.textContent = `₹${parseInt(e.target.value).toLocaleString()}`;
+                applyFilters();
+            });
+
+            filterGroups.forEach(group => {
+                group.addEventListener('change', applyFilters);
+            });
+
+            renderProducts(products); // Initial render
+        });
+    </script>
 </body>
 </html>
-
 

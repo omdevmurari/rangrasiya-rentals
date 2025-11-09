@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory - RangRasiya Admin</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        :root {
+            --sidebar-bg: #ffffff;
+            --main-bg: #f8f9fa;
+            --border-color: #dee2e6;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --brand-primary: #C70039;
+            --brand-primary-light: #fbebee;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--main-bg);
+            color: var(--text-primary);
+        }
+
+        .admin-layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* --- Sidebar --- */
+        .sidebar {
+            width: 260px;
+            background-color: var(--sidebar-bg);
+            border-right: 1px solid var(--border-color);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            left: -260px; /* Hidden by default on mobile */
+            height: 100%;
+            z-index: 1030;
+            transition: left 0.3s ease;
+        }
+        
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar-header {
+            border: 2px dashed var(--border-color);
+            padding: 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-header h1 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0;
+            color: var(--brand-primary);
+        }
+
+        .sidebar-nav .nav-link {
+            color: var(--text-secondary);
+            font-weight: 500;
+            padding: 0.75rem 1rem;
+            border-radius: 0.375rem;
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+        }
+        .sidebar-nav .nav-link .nav-icon {
+            margin-right: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .sidebar-nav .nav-link:hover {
+            background-color: var(--brand-primary-light);
+            color: var(--brand-primary);
+        }
+
+        .sidebar-nav .nav-link.active {
+            background-color: var(--brand-primary-light);
+            color: var(--brand-primary);
+            font-weight: 600;
+        }
+        
+        .sidebar-footer {
+            margin-top: auto;
+        }
+
+        /* --- Main Content --- */
+        .main-content {
+            flex-grow: 1;
+            padding: 1.5rem;
+            transition: margin-left 0.3s ease;
+            width: 100%;
+        }
+
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .main-header h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1020;
+        }
+
+        .sidebar-overlay.active {
+            display: block;
+        }
+        
+        /* --- Table Styles --- */
+        .table-container {
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.05);
+        }
+        .table th {
+            font-weight: 600;
+        }
+        .table td {
+            vertical-align: middle;
+        }
+        .outfit-thumbnail {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 0.375rem;
+        }
+
+        /* --- Responsive Styles --- */
+        @media (min-width: 992px) {
+            .sidebar {
+                left: 0; /* Always visible on large screens */
+            }
+            .main-content {
+                margin-left: 260px;
+            }
+            .sidebar-toggle {
+                display: none; /* Hide hamburger on large screens */
+            }
+        }
+
+        /* FULLY RESPONSIVE TABLE STYLES */
+        @media (max-width: 767px) {
+            .table-responsive {
+                border: none;
+            }
+            .table thead {
+                display: none; /* Hide table headers on mobile */
+            }
+            .table tbody, .table tr, .table td {
+                display: block;
+                width: 100%;
+            }
+            .table tr {
+                margin-bottom: 1rem;
+                border: 1px solid var(--border-color);
+                border-radius: 0.5rem;
+                padding: 1rem;
+            }
+            .table td {
+                text-align: right; /* Align content to the right */
+                padding-left: 50%; /* Create space for the label */
+                position: relative;
+                border: none;
+                padding-bottom: 0.75rem;
+                padding-top: 0.75rem;
+            }
+            .table td::before {
+                content: attr(data-label); /* Use data-label for the content */
+                position: absolute;
+                left: 1rem;
+                width: calc(50% - 2rem);
+                text-align: left;
+                font-weight: 600;
+                color: var(--text-primary);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="sidebar-overlay"></div>
+    <div class="admin-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>Admin Panel</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">
+                            <i class="bi bi-grid-1x2-fill nav-icon"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="inventory.html">
+                            <i class="bi bi-box-seam-fill nav-icon"></i> Inventory
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bookings.html">
+                            <i class="bi bi-calendar-check-fill nav-icon"></i> Bookings
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="customers.html">
+                            <i class="bi bi-people-fill nav-icon"></i> Customers
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reports.html">
+                            <i class="bi bi-bar-chart-line-fill nav-icon"></i> Reports
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                 <a class="nav-link" href="../index.html">
+                    <i class="bi bi-box-arrow-left nav-icon"></i> Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-light me-3 sidebar-toggle d-lg-none">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <h2>Inventory Management</h2>
+                </div>
+                <button class="btn btn-dark">
+                    <i class="bi bi-plus-circle-fill me-sm-2"></i>
+                    <span class="d-none d-sm-inline">Add New</span>
+                </button>
+            </header>
+
+            <div class="table-container">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Image</th>
+                                <th scope="col">ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="Image"><img src="../images/crimson.png" class="outfit-thumbnail"></td>
+                                <td data-label="ID">RR-001</td>
+                                <td data-label="Name">Crimson Silk Lehenga</td>
+                                <td data-label="Price">₹4,500</td>
+                                <td data-label="Status"><span class="badge bg-success">Available</span></td>
+                                <td data-label="Actions">
+                                    <button class="btn btn-sm btn-outline-secondary"><i class="bi bi-pencil-fill"></i></button>
+                                    <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash-fill"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-label="Image"><img src="../images/azure.png" class="outfit-thumbnail"></td>
+                                <td data-label="ID">RR-002</td>
+                                <td data-label="Name">Azure Modern Gown</td>
+                                <td data-label="Price">₹3,800</td>
+                                <td data-label="Status"><span class="badge bg-warning text-dark">Booked</span></td>
+                                <td data-label="Actions">
+                                    <button class="btn btn-sm btn-outline-secondary"><i class="bi bi-pencil-fill"></i></button>
+                                    <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash-fill"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-label="Image"><img src="../images/sunshine.png" class="outfit-thumbnail"></td>
+                                <td data-label="ID">RR-003</td>
+                                <td data-label="Name">Sunshine Yellow Anarkali</td>
+                                <td data-label="Price">₹2,500</td>
+                                <td data-label="Status"><span class="badge bg-secondary">Cleaning</span></td>
+                                <td data-label="Actions">
+                                    <button class="btn btn-sm btn-outline-secondary"><i class="bi bi-pencil-fill"></i></button>
+                                    <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash-fill"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-label="Image"><img src="../images/emerald.png" class="outfit-thumbnail"></td>
+                                <td data-label="ID">RR-004</td>
+                                <td data-label="Name">Emerald Green Sharara</td>
+                                <td data-label="Price">₹5,200</td>
+                                <td data-label="Status"><span class="badge bg-success">Available</span></td>
+                                <td data-label="Actions">
+                                    <button class="btn btn-sm btn-outline-secondary"><i class="bi bi-pencil-fill"></i></button>
+                                    <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash-fill"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebar = document.querySelector('.sidebar');
+            const sidebarToggle = document.querySelector('.sidebar-toggle');
+            const sidebarOverlay = document.querySelector('.sidebar-overlay');
+
+            function toggleSidebar() {
+                sidebar.classList.toggle('active');
+                sidebarOverlay.classList.toggle('active');
+            }
+
+            if (sidebarToggle) {
+                sidebarToggle.addEventListener('click', toggleSidebar);
+            }
+            
+            if (sidebarOverlay) {
+                sidebarOverlay.addEventListener('click', toggleSidebar);
+            }
+        });
+    </script>
+</body>
+</html>
+

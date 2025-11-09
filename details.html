@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - RangRasiya Rentals</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        .nav-link-active {
+            position: relative;
+        }
+        .nav-link-active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #C70039;
+        }
+        .thumbnail {
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+        .thumbnail.active, .thumbnail:hover {
+            border-color: #C70039;
+        }
+        .bg-teal-600 {
+            background-color: #C70039 !important;
+        }
+        .hover\:bg-teal-700:hover {
+             background-color: #900C3F !important;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .main-image {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+     <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-40 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold font-playfair text-gray-800">RangRasiya Rentals</a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-gray-600 hover:text-red-700 transition-colors">Home</a>
+                <a href="collection.html" class="text-red-700 font-semibold nav-link-active">The Collection</a>
+                <a href="aboutus.html" class="text-gray-600 hover:text-red-700 transition-colors">About Us</a>
+                <a href="contactus.html" class="text-gray-600 hover:text-red-700 transition-colors">Contact</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="login.html" class="hidden sm:block bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-gray-200 transition-colors">Login</a>
+                <a href="signup.html" class="bg-teal-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-teal-700 transition-colors">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="product-details-container" class="container mx-auto px-6 py-12">
+        <!-- PRODUCT CONTENT WILL BE RENDERED HERE DYNAMICALLY -->
+        <!-- This is a placeholder for when the content is loading or if an error occurs -->
+         <div class="text-center py-24">
+            <h2 class="text-2xl font-semibold text-gray-500">Loading Product...</h2>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t mt-12">
+        <div class="container mx-auto px-6 py-8">
+             <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-600">&copy; 2025 RangRasiya Rentals. All rights reserved.</p>
+                <div class="flex mt-4 md:mt-0 space-x-6">
+                    <a href="#" class="text-gray-500 hover:text-gray-800">Facebook</a>
+                    <a href="#" class="text-gray-500 hover:text-gray-800">Instagram</a>
+                    <a href="#" class="text-gray-500 hover:text-gray-800">Pinterest</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const productDetailsContainer = document.getElementById('product-details-container');
+            
+            // Get product ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = parseInt(urlParams.get('id'));
+
+            // Find the product in our data
+            const product = products.find(p => p.id === productId);
+
+            if (product) {
+                // If product is found, render the details
+                document.title = `${product.name} - RangRasiya Rentals`; // Update the page title
+
+                let thumbnailsHTML = product.thumbnails.map((thumb, index) => `
+                    <img src="${thumb}" alt="Thumbnail ${index + 1}" class="thumbnail rounded-md ${index === 0 ? 'active' : ''}" data-full="${thumb}">
+                `).join('');
+
+                const productHTML = `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <!-- Image Gallery -->
+                        <div>
+                            <div class="bg-gray-100 rounded-lg overflow-hidden mb-4 shadow-sm">
+                                <img id="main-image" src="${product.img}" alt="Main view of ${product.name}" class="w-full h-auto object-cover main-image">
+                            </div>
+                            <div class="grid grid-cols-4 gap-4" id="thumbnail-gallery">
+                                ${thumbnailsHTML}
+                            </div>
+                        </div>
+
+                        <!-- Product Details -->
+                        <div class="flex flex-col justify-center">
+                            <h1 class="font-playfair text-4xl md:text-5xl font-bold text-gray-900">${product.name}</h1>
+                            <p class="text-3xl text-gray-700 mt-4">₹${product.price.toLocaleString()} <span class="text-lg font-normal">Rental Price</span></p>
+                            <p class="mt-6 text-gray-600 leading-relaxed">
+                               ${product.description}
+                            </p>
+                            <div class="mt-8 space-y-3 border-t pt-6">
+                                <p class="text-gray-800"><strong class="font-semibold">Size:</strong> ${product.size}</p>
+                                <p class="text-gray-800"><strong class="font-semibold">Fabric:</strong> ${product.fabric}</p>
+                                <p class="text-gray-800"><strong class="font-semibold">Work:</strong> ${product.work}</p>
+                            </div>
+                            <div class="mt-10">
+                                <button class="w-full sm:w-auto bg-teal-600 text-white font-bold py-4 px-12 rounded-lg text-lg hover:bg-teal-700 transition-colors shadow-lg transform hover:scale-105">
+                                    Book Now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                productDetailsContainer.innerHTML = productHTML;
+
+                // Add event listeners for new thumbnails
+                const mainImage = document.getElementById('main-image');
+                const thumbnails = document.querySelectorAll('.thumbnail');
+                thumbnails.forEach(thumb => {
+                    thumb.addEventListener('click', () => {
+                        mainImage.src = thumb.dataset.full;
+                        thumbnails.forEach(t => t.classList.remove('active'));
+                        thumb.classList.add('active');
+                    });
+                });
+
+            } else {
+                // If no product is found, show an error message
+                productDetailsContainer.innerHTML = `
+                    <div class="text-center py-24">
+                         <h1 class="font-playfair text-4xl font-bold text-gray-800 mb-4">Product Not Found</h1>
+                         <p class="text-gray-600">Sorry, we couldn't find the outfit you're looking for.</p>
+                         <a href="collection.html" class="mt-8 inline-block bg-teal-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-teal-700 transition-colors">
+                            Back to Collection
+                         </a>
+                    </div>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>
+
